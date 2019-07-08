@@ -1,0 +1,40 @@
+<% include ./partials/header %>
+<div class="container jumbotron col-lg-4 mt-3 pt-3">
+    <div class="row justify-content-center">
+        <h3><p><%= blog.title %></p></h3>
+        <div class="col-lg-6 col-sm-6 pt-5 pb-3">
+            <h5>Question</h5>
+            <p><%= blog.description %></p>
+            <h4>Answers</h4>
+            <p class="bg-info text-white">
+                <% blog.Answers.forEach(function(ans_blog){ %>
+                    <p><%= ans_blog.Answerdescription %></p>
+                    Answered By: <%= ans_blog.Answeredby %><br>
+                <% }) %>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container col-lg-4 mt-3 pt-3">
+    <h3>Post Your Answer</h3>
+    <form action="/dashbord/<%= blog._id %>" method="POST" class="justify-content-center">
+        <div class="form-group">
+            <label for="txt_name">Your Name</label>
+            <input type="text" class="form-control" id="txt_name" name="stack[Answeredby]" aria-describedby="name" placeholder="Enter Your Name">
+        </div>        
+        <div class="form-group">
+            <label for="txt_ans">Your Answer</label>
+            <textarea class="form-control" rows="5" id="txt_ans" name="stack[Answerdescription]" placeholder="Enter Answer"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+<% include ./partials/footer %>

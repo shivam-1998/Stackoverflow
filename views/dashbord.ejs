@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+<section class="row">
+<section class="col-sm-3 mt-4"> 
+    <h1 class="text-center">DashBoard</h1>
+    <div class="card mt-3 ml-2" style="width: 22rem;">
+     <div class="card-header text-center">Recently Asked Questions </div>
+          <div class="card-body">
+            <ul>
+             <li><a href="">Que-1</a> </li> 
+             <li><a href="">Que-1</a> </li>
+             <li><a href="">Que-1</a> </li>
+            </ul>
+          </div>
+    </div>
+</section> 
+  
+<section class="col-sm-9 mt-4"> 
+<% blogs.forEach(function(stacks){ %>
+         <div class="container">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea3"></label>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="1"><%= stacks.title %></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="1"><%= stacks.description %></textarea>
+                <a href="/dashbord/<%= stacks._id %>">show more</a>
+              </div>
+         </div>
+        
+<% }) %>
+</section>
+      </section>
+<% include ./partials/footer %>
